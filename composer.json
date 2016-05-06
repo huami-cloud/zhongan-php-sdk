@@ -1,0 +1,23 @@
+{
+  "name": "huami-cloud/zhongan-php-sdk",
+  "description": "ZhongAn open platform php sdk",
+  "keywords": ["zhongan", "huami", "xiaomi"],
+  "homepage": "http://huami.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zhong An",
+      "email": "open@zhongan.com",
+      "homepage": "https://www.zhongan.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.2.0",
+    "ext-curl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zhongan\\": "src/classes/"
+    }
+  }
+}
