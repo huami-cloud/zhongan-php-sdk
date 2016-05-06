@@ -16,8 +16,8 @@
     "ext-curl": "*"
   },
   "autoload": {
-    "psr-4": {
-      "HuamiCloud\\ZhonganPhpSdk\\": "src/classes/"
-    }
+    "classmap": [ 
+      "src/classes"
+    ]
   }
 }
