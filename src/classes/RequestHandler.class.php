@@ -106,18 +106,20 @@ Y6BbAVoysred7QzIOH6flqaESf8jM6Cxh9u/FdGD15/mPKY=
      * @param string $env 环境参数，实例化时需传入此参数
      * @throws Exception
      */
-    public function __construct($env)
+    public function __construct($env, $config = array())
     {
-        if (!isset(self::$_config[$env])) {
+        $useConfig = empty($config) ? self::$_config[$env] : $config;
+
+        if (!isset($useConfig[$env])) {
             throw new Exception(
                 sprintf(
                     '环境必须为(%s)中的一个，请修改！',
-                    implode('|', array_keys(self::$_config))
+                    implode('|', array_keys($useConfig))
                 )
             );
         }
         $this->_env       = $env;
-        $this->_envConfig = self::$_config[$env];
+        $this->_envConfig = $useConfig[$env];
         $this->_addDebugInfo(array($this->_env => $this->_envConfig));
         foreach (array('gateUrl', 'appKey', 'partnerPublicKey', 'ownPrivateKey') as $key) {
             if (
