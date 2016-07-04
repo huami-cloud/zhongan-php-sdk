@@ -41,6 +41,9 @@ class RSA
         $encryptedData = base64_decode($encryptedData);
         $decryptedList = array();
         $step          = 128;
+        if (strlen ( $this->_ownPrivateKey ) > 1000) {
+            $step = 256;
+        }
         for ($i = 0, $len = strlen($encryptedData); $i < $len; $i += $step) {
             $data      = substr($encryptedData, $i, $step);
             $decrypted = '';
